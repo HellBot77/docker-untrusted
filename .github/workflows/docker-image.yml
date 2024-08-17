@@ -26,7 +26,7 @@ jobs:
         id: get-tag
         run: >
           python3 get_tag.py ${{ github.event_name != 'workflow_dispatch' && env.DOCKERHUB_REPOSITORY || '""' }}
-          --gl-commit ${{ env.SOURCE_REPOSITORY }} >> $GITHUB_OUTPUT
+          --gh-commit ${{ env.SOURCE_REPOSITORY }} >> $GITHUB_OUTPUT
 
   build-push:
     needs: get-tag
